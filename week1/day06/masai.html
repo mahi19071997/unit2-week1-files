@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav{
+            top: 10px;
+            height: 7vh;
+            width: 100%;
+            background-color: aqua;
+            position: fixed;
+        }
+        nav img{
+            float: left;
+            width: 8%;
+            height: 100%;
+        }
+        #box{
+            margin-top: 100px;
+            width: 100%;
+            display: grid;
+            grid-template: "form table";
+            padding-top: 30px;
+            
+
+        }
+        #box form{
+            grid-area: form;
+            background-color: rgb(155, 240, 243);
+            height: 230px;
+            width: 50%;
+        }
+        #box table{
+            grid-area: table;
+            background-color: rgb(212, 193, 85);
+            margin-right: 40px;
+            padding: 2px;
+        }
+        #form .form-items{
+            margin: 10px;
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        #form #submit{
+            width: 80%;
+            background: rgb(211, 64, 64);
+            border-radius: 10px;
+            margin-top: 30px;
+            height: 30px;
+            margin-left: 30px;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="https://learn.masaischool.com/img/logo_big.png" alt="masai school">
+    </nav>
+    <div id="box">
+        <form id="form">
+            <input type="text" placeholder="Name" id="name" class="form-items" required>
+            <input type="text" placeholder="Age" id="age" class="form-items" required>
+            <input type="text" placeholder="City" id="city" class="form-items" required>
+            <input type="text" placeholder="Number" id="number" class="form-items" required>
+            <button id="submit" type="submit">Submit</button>
+                <p id="para">
+
+
+            </p>
+        </form>
+        <table id="table" border="2px">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Number</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    
+    <script type="text/javascript">
+    function makingTable(e){
+        e.preventDefault();
+        var form= document.getElementById("form")
+        var name= document.getElementById("name").value
+        var age= Number(document.getElementById("age").value)
+        var number= Number(document.getElementById("number").value)
+        var city= document.getElementById("city").value
+        var table= document.getElementById("table")
+        if(age==Number(age) && number==Number(number)){
+            if(name.length>0 && age>0 && city.length>0 && number>0){
+                function Tablemaking(na, ag, ci, num){
+                    this.name= na
+                    this.age= ag
+                    this.city= ci
+                    this.number = num
+                }
+                var obj= new Tablemaking(name,age,city,number)
+                // console.log(obj)
+                var tbody= document.createElement("tbody")
+                var row= document.createElement("tr")
+                var col1= document.createElement("td")
+                var col2= document.createElement("td")
+                var col3= document.createElement("td")
+                var col4= document.createElement("td")
+                col1.textContent=obj.name
+                col2.textContent=obj.age
+                col3.textContent=obj.city
+                col4.textContent=obj.number
+                row.appendChild(col1)
+                row.appendChild(col2)
+                row.appendChild(col3)
+                row.appendChild(col4)
+                tbody.appendChild(row)
+                table.appendChild(tbody)
+                form.reset()
+
+
+            }
+        }
+        else{
+           var para= document.getElementById("para")
+           alert(para.textContent="Error")
+
+        }
+        
+    }
+    form.addEventListener("submit",makingTable)
+        
+
+    </script>
+</body>
+</html>

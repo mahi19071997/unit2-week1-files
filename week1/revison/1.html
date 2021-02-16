@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+        #nav-bar {
+            display: flex;
+            position: fixed;
+            height: 10vh;
+            top: 0px;
+            width: 100%;
+            background: hotpink;
+        }
+
+        #nav-bar #samsung {
+            font-size: 25px;
+            padding-left: 20px;
+            padding-top: 15px;
+            text-decoration: none;
+            margin-right: 50px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        #nav-bar .sec {
+            margin-left: 30px;
+            padding-top: 20px;
+            text-decoration: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: rgb(156, 85, 206);
+            font-weight: 700;
+        }
+
+        #nav-bar .thi {
+            margin-left: 30px;
+            padding-top: 20px;
+            text-decoration: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: rgb(87, 12, 18);
+            font-weight: 700;
+        }
+
+        #nav-bar>.mar {
+            padding-right: 50px;
+        }
+
+        .clear {
+            clear: both;
+        }
+        #main{
+            display: grid;
+            grid-template: "form table";
+            height: 300px ;
+            margin-top: 200px;
+            width: 100%;
+        }
+        #main #form{
+            grid-area: form;
+            min-height: 90%;
+            width: 50%;
+        }
+        #main #table{
+            grid-area: table;
+            margin-right: 50px;
+            background: ivory;
+        }
+        #checkbox{
+            margin-top: 30px;
+            margin-left: 120px;
+        }
+         #name, #main #age, #main #class, #main #task{
+            margin: 20px;
+        }
+        #main #submit{
+            width: 100px;
+            height: 30px;
+            margin-left: 20px;
+        }
+       
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <nav id="nav-bar">
+            <a href="#" id="samsung">SAMSUNG</a>
+            <a href="#" class="sec">Mobile</a>
+            <a href="#" class="sec">TV &AC</a>
+            <a href="#" class="sec">Home Appliances</a>
+            <a href="#" class="sec">Computing</a>
+            <a href="#" class="sec">Displays</a>
+            <a href="#" class="sec mar">offers</a>
+            <a href="#" class="thi">Explore</a>
+            <a href="#" class="thi">Support</a>
+            <a href="#" class="thi">Business</a>
+            <i class="fa fa-search" style="font-size:24px"></i>
+        </nav>
+        <div class="clear"></div>
+        <div id="main">
+            <form id="form">
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="text" id="age" placeholder="Age" required>
+                <input type="text" id="class" placeholder="Class" required>
+                <input type="text" id="task" placeholder="Task" required><br>
+                <input type="checkbox" id="checkbox"  >
+                <button id="submit">Submit</button>
+
+            </form>
+            <table id="table" border="1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Class</th>
+                        <th>Task</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+
+
+    </div>
+    <script>
+        function submit(e){
+            e.preventDefault()
+            var form= document.getElementById("form")
+            var table= document.getElementById("table")
+            var name= document.getElementById("name").value
+            var age= document.getElementById("age").value
+            var cls= document.getElementById("class").value
+            var task= document.getElementById("task").value
+            var checkbox= document.getElementById("checkbox").value
+            function Const(x,y,z,a,c){
+                this.name= x
+                this.age= y
+                this.cls= z
+                this.task= a
+                this.checkbox=c
+
+            }
+            var obj =new Const(name,age,cls,task,checkbox)
+
+            var tbody= document.createElement("tbody")
+            var tr= document.createElement("tr")
+            var td1= document.createElement("td")
+            var td2= document.createElement("td")
+            var td3= document.createElement("td")
+            var td4= document.createElement("td")
+            var td5= document.createElement("td")
+            td1.textContent=obj.name
+            td2.textContent=obj.age
+            td3.textContent=obj.cls
+            td4.textContent=obj.task
+            td5.innerHTML=obj.checkbox
+            tr.append(td1, td2, td3, td4,td5)
+            tbody.appendChild(tr)
+            table.appendChild(tbody)
+            form.reset()
+           
+            
+
+        }
+        form.addEventListener("submit",submit)
+
+
+    </script>
+</body>
+
+</html>

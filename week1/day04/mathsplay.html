@@ -1,0 +1,59 @@
+<!-- Create an input box, checkbox/dropdown list of at least 3 Math methods we learned and a submit button.
+input box should accept only number. Show error on Submit if string is entered.
+Once the number is entered, allow user to choose a Math method to implement. You can use either dropdown or checkbox to show the options.
+with the provided option and number, show the ouput.
+for e.g number entered is 3.14 and Math method selected is Math.round(), output would be 3.
+remember, implement at least 3 Math methods and input should only accept a number -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <input type="text" id="input">
+    <select id="choose">
+        <option value="floor">floor</option>
+        <option value="ceil">ceil</option>
+        <option value="round">round</option>
+    </select>
+    <button onclick="result()">
+        submit
+    </button>
+    <br>
+    <p id="message"></p>
+    <script>
+        function result(){
+            var choose= document.getElementById("choose").value
+            var input= document.getElementById("input").value
+            var message= document.getElementById("message")
+            if(input=Number(input)){
+
+           
+            if(choose=="floor"){
+                input=Number(input)
+                message.textContent= Math.floor(input)
+            }
+            else if(choose=="ceil"){
+                input=Number(input)
+                message.textContent= Math.ceil(input)
+            }
+            else if(choose=="round"){
+                input=Number(input)
+                message.textContent= Math.round(input)
+            }
+        }
+        else{
+            message.textContent="ERROR"
+        }
+
+
+        }
+    </script>
+    
+</body>
+</html>

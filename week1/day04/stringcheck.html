@@ -1,0 +1,34 @@
+<!-- create two input box and one submit button.
+First input box should accept a string and second input box another string/substring.
+on submit, check if original string contains the string entered in first input box.
+For e.g input1= 'masai' and input2='asa', since its a valid substring, print true else print false -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="string" >
+    <input type="text" id="substring">
+    <button onclick="submit()">Submit</button>
+    <p id="message"></p>
+    <script>
+        function submit(){
+            var string= document.getElementById("string").value;
+            var substring= document.getElementById("substring").value;
+            var message= document.getElementById("message");
+            var x=  string.includes(substring)
+            if(x==true){
+                message.textContent="true";
+
+            }
+            else{
+                message.textContent="false";
+            }
+        }
+    </script>
+</body>
+</html>
