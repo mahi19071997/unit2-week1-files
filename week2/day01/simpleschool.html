@@ -1,0 +1,54 @@
+<!-- Create multiple constructor functions to add new teachers, new students and new competitions.
+Since, the data will have same pattern, use constructor functions to create objects and store data.
+add methods using prototype to print bio of students and teacher. For competitions create a method of your own choice.- Follow the best practices we discussed. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Teacher(tname,tage,tsub){
+            this.name= tname;
+            this.age= tage;
+            this.subject= tsub;
+        }
+        Teacher.prototype.bioTeach=function(){
+            console.log("Mr. " + this.name +" of age "+ this.age + " teach us " + this.subject)
+        }
+        function Student(sname,sage,sclass){
+            this.name= sname;
+            this.age= sage;
+            this.class= sclass;
+        }
+        Student.prototype.study=function(){
+            console.log( this.name +" of age "+ this.age + " study in " + this.class)
+        }
+        function Competetion(task){
+            this.task= task;   
+        }
+        Competetion.prototype.tasking=function(){
+            this.date= new Date()
+            console.log(this.task+ " is held on " + this.date)
+        }
+        var teacher1 = new Teacher("Yogesh", 42, "Soft Skills")
+        var teacher2 = new Teacher("Nrupul", 32, "JavaScript")
+        var student1 = new Student("kavya", 24, "B.tech")
+        var student2 = new Student("manvi", 25, "M.tech")
+        var task1= new Competetion("Kho-Kho")
+        var task2= new Competetion("Badminton")
+        teacher1.bioTeach()
+        teacher2.bioTeach()
+        student1.study()
+        student2.study()
+        task1.tasking()
+        task2.tasking()
+
+    
+
+    </script>
+</body>
+</html>

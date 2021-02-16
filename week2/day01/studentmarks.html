@@ -1,0 +1,53 @@
+<!-- Write a calPer() constructor function that can calculate percentage of students.
+create 10 students using a different constructor function. Students should have marksobtained, marksoutof key-value pairs.
+Use call and bind on the calPer() constructor function to change the value of 'this' and find the percentage of each student.
+Be creative. See if you could take help of any loop to minimize the amount of code you have to write. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function marks(marksobt, marksout) {
+            this.marksObtained = marksobt;
+            this.marksoutof = marksout;
+        }
+
+        function calPer() {
+            this.percentage = (this.marksObtained / this.marksoutof) * 100;
+            console.log("percentage of student " + Math.round(this.percentage))
+        }
+
+        var stu1 = new marks(80, 200);
+        var stu2 = new marks(105, 200);
+        var stu3 = new marks(120, 200);
+        var stu4 = new marks(150, 200);
+        var stu5 = new marks(165, 200);
+        var stu6 = new marks(70, 200);
+        var stu7 = new marks(169, 200);
+        var stu8 = new marks(153, 200);
+        var stu9 = new marks(190, 200);
+        var stu10 = new marks(37, 200);
+
+        var arr = [];
+        arr.push(stu1, stu2, stu3, stu4, stu5, stu6, stu7, stu8, stu9, stu10)
+        console.log("<==Using Call method==>")
+        for (var i = 0; i < arr.length; i++) {
+            calPer.call(arr[i])
+        }
+        console.log(" ");
+        console.log("<==Using Bind method==>")
+
+        for (var i = 0; i < arr.length; i++) {
+            calPer.bind(arr[i])()
+        }
+    </script>
+</body>
+
+</html>
